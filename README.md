@@ -14,12 +14,23 @@ Tap the button on your device, or add this URL as a patch source in Morphe Manag
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
+> **[v1.0.0-dev.1](https://github.com/Roboroads/morphe-patches/releases/tag/v1.0.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+<details open>
+<summary>📦 Discovery Plus&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
 
-<!-- Generated on release by release.yml. Do not edit by hand. -->
+**Package name:** `com.discovery.discoveryplus.firetv`
 
-| App | Package | Patches |
-|---|---|---|
-| discovery+ (Fire TV) | `com.discovery.discoveryplus.firetv` | Remove ads |
+**🎯 Supported versions:**
+
+| 22.0.0.67 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Skip ads](#skip-ads) | Ads are stitched into the video stream by the server and cannot be removed. This patch treats every ad break as already watched so the player skips over it automatically, allows seeking out of and past ad breaks, and disables pause ads. |  |
+
+</details>
 
 <!-- PATCHES_END -->
 
