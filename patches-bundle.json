@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-11-12T09:48:43",
-  "description": "## 1.0.0 (2026-11-12)\n\n### ✨ New Features\n\n* Add Skip ads patch for Discovery Plus on Fire TV ([f6f08d5](https://github.com/Roboroads/morphe-patches/commit/f6f08d58019550ff362756abbb07dfcf9feb7bdc))",
-  "download_url": "https://github.com/Roboroads/morphe-patches/releases/download/v1.0.0/patches-1.0.0.mpp",
+  "created_at": "2026-11-12T10:15:19",
+  "description": "## [1.1.0-dev.1](https://github.com/Roboroads/morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-11-12)\n\n### ✨ New Features\n\n* **Discovery Plus:** Auto-skip all ads, including pre-roll ([de75632](https://github.com/Roboroads/morphe-patches/commit/de75632d1398ab9cc55724c2c95aa282d4f8554b))",
+  "download_url": "https://github.com/Roboroads/morphe-patches/releases/download/v1.1.0-dev.1/patches-1.1.0-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.0.0"
+  "version": "1.1.0-dev.1"
 }
