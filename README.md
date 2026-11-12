@@ -13,10 +13,12 @@ Tap the button on your device, or add this URL as a patch source in Morphe Manag
 
 ## 🩹 Patches list
 
+Where to get the APK: [Discovery Plus (Fire TV) 22.0.0.67 on APKMirror](https://www.apkmirror.com/apk/discovery-communications/discovery-stream-tv-shows-originals-and-more-fire-tv/discovery-stream-tv-shows-originals-and-more-fire-tv-android-tv-22-0-0-67-release/)
+
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.0](https://github.com/Roboroads/morphe-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+> **[v1.1.0-dev.1](https://github.com/Roboroads/morphe-patches/releases/tag/v1.1.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
 <details open>
-<summary>📦 Discovery Plus&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📺 Discovery Plus (Android TV)&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 **Package name:** `com.discovery.discoveryplus.firetv`
@@ -25,10 +27,11 @@ Tap the button on your device, or add this URL as a patch source in Morphe Manag
 
 | 22.0.0.67 |
 | :---: |
+| APKMirror: https://www.apkmirror.com/apk/discovery-communications/discovery-stream-tv-shows-originals-and-more-fire-tv/discovery-stream-tv-shows-originals-and-more-fire-tv-android-tv-22-0-0-67-release/ |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Skip ads](#skip-ads) | Ads are stitched into the video stream by the server and cannot be removed. This patch treats every ad break as already watched so the player skips over it automatically, allows seeking out of and past ad breaks, and disables pause ads. |  |
+| [Auto-skip ads](#auto-skip-ads) | Automatically skips all ads, including pre-roll and mid-roll breaks, and hides ad overlays and pause ads. Ads are stitched into the stream, so a fraction of a second of a pre-roll may still show. |  |
 
 </details>
 

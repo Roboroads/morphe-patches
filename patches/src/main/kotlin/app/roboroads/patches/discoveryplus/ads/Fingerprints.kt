@@ -79,6 +79,28 @@ internal object AdSkipOnSeekRequestFingerprint : Fingerprint(
 )
 
 /**
+ * Legacy adtech path. Subscriber lambda that receives every coordinator ModuleInputEvent and
+ * dispatches SeekRequest / AdBreakWillStart / PodEnded to the module.
+ * The lambda name is compiler generated, so it is matched by the three dispatch calls instead.
+ * The obfuscated Unit return type and Ref.ObjectRef parameter are declared as "L".
+ */
+internal object AdSkipModuleInputDispatcherFingerprint : Fingerprint(
+    definingClass = AD_SKIP_MODULE,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL),
+    returnType = "L",
+    parameters = listOf(
+        AD_SKIP_MODULE,
+        "L",
+        "Lcom/discovery/adtech/core/modules/events/ModuleInputEvent;",
+    ),
+    filters = listOf(
+        methodCall(definingClass = AD_SKIP_MODULE, name = "onSeekRequest"),
+        methodCall(definingClass = AD_SKIP_MODULE, name = "onAdBreakWillStart"),
+        methodCall(definingClass = AD_SKIP_MODULE, name = "onAdPodEnd"),
+    ),
+)
+
+/**
  * TimelineManager path (only active when the remote flag enables it).
  * Sole watched-ad-break check used by DefaultAdSkipManager.
  */
@@ -97,28 +119,47 @@ internal object TimelineIsAdBreakAlreadyWatchedFingerprint : Fingerprint(
     ),
 )
 
+private const val BUILD_DEFAULT_AD_TECH_SDK = "Lcom/discovery/adtech/sdk/defaultsdk/BuildDefaultAdTechSdkKt;"
+private const val AD_TECH_SDK_FEATURES = "Lcom/discovery/adtech/sdk/defaultsdk/DefaultAdTechSdkConfig\$Features;"
+private val BUILD_DEFAULT_AD_TECH_SDK_LAMBDA_PARAMETERS = listOf(
+    "Lcom/discovery/adtech/sdk/defaultsdk/DefaultAdTechSdkConfig;",
+    "Lcom/discovery/adtech/eventstreams/AdTechEventStreamsCallbacks;",
+    "Ljava/util/List;",
+    "L",
+    "L",
+    "Lcom/discovery/adtech/sdk/AdTechSdkBuilder;",
+)
+
+/**
+ * Adtech SDK builder lambda. Configures the server side ad overlay (ad badge, countdown,
+ * "Ad x of y", learn more) when DefaultAdTechSdkConfig.Features.getServerSideAdOverlay()
+ * is not null, otherwise calls AdTechSdkBuilder.disableAdUi().
+ * The obfuscated Unit return type and parameters are declared as "L".
+ */
+internal object BuildAdTechSdkAdOverlayFingerprint : Fingerprint(
+    definingClass = BUILD_DEFAULT_AD_TECH_SDK,
+    accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL),
+    returnType = "L",
+    parameters = BUILD_DEFAULT_AD_TECH_SDK_LAMBDA_PARAMETERS,
+    filters = listOf(
+        methodCall(definingClass = AD_TECH_SDK_FEATURES, name = "getServerSideAdOverlay"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        string("Configuring Ad UI with "),
+    ),
+)
+
 /**
  * Adtech SDK builder lambda. Registers the pause ads plugin when
  * DefaultAdTechSdkConfig.Features.getPauseAds() is not null.
  * The obfuscated Unit return type and parameters are declared as "L".
  */
 internal object BuildAdTechSdkPauseAdsFingerprint : Fingerprint(
-    definingClass = "Lcom/discovery/adtech/sdk/defaultsdk/BuildDefaultAdTechSdkKt;",
+    definingClass = BUILD_DEFAULT_AD_TECH_SDK,
     accessFlags = listOf(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL),
     returnType = "L",
-    parameters = listOf(
-        "Lcom/discovery/adtech/sdk/defaultsdk/DefaultAdTechSdkConfig;",
-        "Lcom/discovery/adtech/eventstreams/AdTechEventStreamsCallbacks;",
-        "Ljava/util/List;",
-        "L",
-        "L",
-        "Lcom/discovery/adtech/sdk/AdTechSdkBuilder;",
-    ),
+    parameters = BUILD_DEFAULT_AD_TECH_SDK_LAMBDA_PARAMETERS,
     filters = listOf(
-        methodCall(
-            definingClass = "Lcom/discovery/adtech/sdk/defaultsdk/DefaultAdTechSdkConfig\$Features;",
-            name = "getPauseAds",
-        ),
+        methodCall(definingClass = AD_TECH_SDK_FEATURES, name = "getPauseAds"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
         string("PauseAds enabled with "),
     ),
