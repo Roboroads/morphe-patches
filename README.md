@@ -13,6 +13,8 @@ Tap the button on your device, or add this URL as a patch source in Morphe Manag
 
 ## 🩹 Patches list
 
+Where to get the APK: [Discovery Plus (Fire TV) 22.0.0.67 on APKMirror](https://www.apkmirror.com/apk/discovery-communications/discovery-stream-tv-shows-originals-and-more-fire-tv/discovery-stream-tv-shows-originals-and-more-fire-tv-android-tv-22-0-0-67-release/)
+
 <!-- PATCHES_START EXPANDED -->
 > **[v1.0.0](https://github.com/Roboroads/morphe-patches/releases/tag/v1.0.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
 <details open>
