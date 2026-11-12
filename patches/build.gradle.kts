@@ -1,14 +1,13 @@
-group = "app.template"
+group = "app.roboroads"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
-        contact = "na"
-        website = "na"
+        name = "Roboroads Patches"
+        description = "Roboroads' collection of Morphe patches"
+        source = "git@github.com:Roboroads/morphe-patches.git"
+        author = "Roboroads"
+        contact = "https://github.com/Roboroads/morphe-patches/issues"
+        website = "https://github.com/Roboroads/morphe-patches"
         license = "GPLv3"
     }
 }

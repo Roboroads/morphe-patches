@@ -132,3 +132,8 @@ node_modules/
 # Ignore IDEA files
 .idea/
 local.properties
+
+# Android app containers
+*.apkm
+*.apks
+*.xapk
